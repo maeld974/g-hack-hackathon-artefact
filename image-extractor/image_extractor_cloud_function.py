@@ -2,18 +2,17 @@
 import io
 import os
 import csv
-import tempfile
+# import tempfile
 
 from google.oauth2 import service_account
 from google.cloud import vision
 from google.cloud import storage
-from wand.image import Image
+# from wand.image import Image
 
 storage_client = storage.Client()
 
-def return_labels(data, context):
-	file_data = data
-
+def return_labels(file_data):
+	
     file_name = file_data['name']
     bucket_name = file_data['bucket']
 
