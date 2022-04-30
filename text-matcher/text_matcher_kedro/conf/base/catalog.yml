@@ -1,0 +1,19 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://kedro.readthedocs.io/en/stable/data/data_catalog.html
+food_carbon_df:
+  type: pandas.ExcelDataSet
+  filepath: gs://example-input-hacktathon-2022/SuEatableLife_Food_Fooprint_database.xlsx
+  credentials: gcp_file_store_creds
+    fs_args:
+      project: GHACK-ARTEFACT-2022
+  save_args:
+    sheet_name: SEL CF DATA SOURCES
+
+embeddings_np:
+  type: numpy.array
+  filepath: gs://example-input-hacktathon-2022/embeddings.npy
+  credentials: gcp_file_store_creds
+    fs_args:
+      project: GHACK-ARTEFACT-2022
