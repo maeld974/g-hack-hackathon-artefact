@@ -17,12 +17,12 @@ def compute_similarity(input_text, food_carbon_df, embeddings_np):
     input_embedding = model.encode(input_text, convert_to_tensor=True,show_progress_bar = False)
     
     # Compute similarity scores of input with food categories
-    similarity_scores = [float(util.cos_sim(input_embedding, x).numpy()[0]) for x in embeddings]
+    similarity_scores = [float(util.cos_sim(input_embedding, x).numpy()[0]) for x in embeddings_np]
     food_carbon_df['Similarity'] = similarity_scores
 
     # Take the food category as the one with max similarity score
     max_idx = food_carbon_df['Similarity'].idxmax()
-    food_category = food_carbon_df['FOOD COMMODITY ITEM'].iloc[max_idx]    
+    food_category = [food_carbon_df['FOOD COMMODITY ITEM'].iloc[max_idx]] 
+    df_food_category = pd.DataFrame(food_category, columns = ['Food_Category'])
     
-    
-    return food_category
+    return df_food_category

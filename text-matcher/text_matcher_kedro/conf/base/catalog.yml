@@ -6,14 +6,29 @@ food_carbon_df:
   type: pandas.ExcelDataSet
   filepath: gs://example-input-hacktathon-2022/SuEatableLife_Food_Fooprint_database.xlsx
   credentials: gcp_file_store_creds
-    fs_args:
-      project: GHACK-ARTEFACT-2022
-  save_args:
+  fs_args:
+    project: GHACK-ARTEFACT-2022
+  load_args:
     sheet_name: SEL CF DATA SOURCES
 
 embeddings_np:
-  type: numpy.array
-  filepath: gs://example-input-hacktathon-2022/embeddings.npy
+  type: pickle.PickleDataSet
+  filepath: gs://example-input-hacktathon-2022/embeddings.pkl
   credentials: gcp_file_store_creds
-    fs_args:
-      project: GHACK-ARTEFACT-2022
+  fs_args:
+    project: GHACK-ARTEFACT-2022
+
+
+input_text:
+  type: pandas.CSVDataSet
+  filepath: gs://example-input-hacktathon-2022/input_text.csv
+  credentials: gcp_file_store_creds
+  fs_args:
+    project: GHACK-ARTEFACT-2022 
+
+df_food_category:
+  type: pandas.CSVDataSet
+  filepath: gs://example-input-hacktathon-2022/food_category.csv
+  credentials: gcp_file_store_creds
+  fs_args:
+    project: GHACK-ARTEFACT-2022 

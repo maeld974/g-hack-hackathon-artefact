@@ -8,7 +8,7 @@ def create_pipeline(**kwargs):
             node(
                 func=compute_similarity,
                 inputs=["input_text", "food_carbon_df", "embeddings_np"],
-                outputs="food_category",
+                outputs="df_food_category",
                 name="compute_similarity",
                 tags="compute_similarity",
             )
